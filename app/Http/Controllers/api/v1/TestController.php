@@ -40,6 +40,20 @@ class TestController extends Controller
         return response()->json($test, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
+    public function GetByColumn($ID, $Column, $Column1)
+    {
+        $test = Test::where('ID', $ID)
+            ->where('Column', $Column)
+            ->where('Column1', $Column1)
+            ->get();
+
+        if ($test->isEmpty()) {
+            return response()->json(['message' => 'No test found.'], 404);
+        }
+
+        return response()->json($test, 200, [], JSON_UNESCAPED_UNICODE);
+    }
+
 
     public function PostTest(Request $request)
     {

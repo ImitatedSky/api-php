@@ -30,6 +30,7 @@ use App\Http\Controllers\Api\v1\TestController;
 Route::prefix('v1')->group(function () {
     Route::get('test', [TestController::class, 'GetAllTests']);
     Route::get('test/{ID}', [TestController::class, 'GetTest']);
+    Route::get('test/{ID}/{Column}/{Column1}}', [TestController::class, 'GetByColumn']);
 
     Route::Post('test', [TestController::class, 'PostTest']);
     Route::Post('test/{ID}/{Column}/{Column1}}', [TestController::class, 'PostTest1']);
@@ -38,4 +39,16 @@ Route::prefix('v1')->group(function () {
     Route::Put('test', [TestController::class, 'PutTest']);
 
     Route::Delete('test', [TestController::class, 'DeleteTest']);
+});
+
+
+/*
+||--------------------------------------------------------------------------
+|| test1 Routes
+||--------------------------------------------------------------------------
+|*/
+use App\Http\Controllers\Api\v1\Test1Controller;
+
+Route::prefix('v1')->group(function () {
+    // Route::get('test1', [Test1Controller::class, 'GetAllTests']);
 });
